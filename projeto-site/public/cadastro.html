@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proj. Individual | Meu nome aqui</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contato-e-login.css">
+    <script src="https://kit.fontawesome.com/48b24e7021.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="img/Verus Fantasy(SL).png" type="image/x-icon">
+</head>
+<body class= background-log>
+    <a href="index.html" class="home_icon"><img src="img/home.png" alt=""></a>
+    <div class="cont_signup">
+        <div class="signup" id="img_cad">
+            <img src="img/Verus Fantasy(SL).png" alt="">
+        </div>
+        <div class="signup">
+            <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+                <span class="title_cad">Cadastro</span><br>
+                <span class="log_cad_field">Nome</span><br>
+                    <input type="text" class="inp_cad"name="nome" autofocus><br><br>
+                <span class="log_cad_field" >Usuário</span><br>
+                    <input type="text" class="inp_cad" name="login"><br><br>
+                <span class="log_cad_field" id="inp_senha">Senha</span><br>
+                    <input type="password" class="inp_cad" name="senha"><br><br>
+                <span class="log_cad_field" id="inp_conf_senha">Confirmar Senha</span><br>
+                    <input type="password" class="inp_cad"> <br>
+                <!-- <button class="btn_log">Cadastrar</button> -->
+                <input type="submit" id="btn_entrar" value="Cadastrar" class="btn_cad">
+            </form>
+        </div>
+        <div class="extra">
+            <div id="div_erro" class="msg_erro">
+            </div>
+
+            <img src="https://media.giphy.com/media/pGnNhScvs9Udt1WSkA/giphy.gif" id="img_aguarde"  >
+            
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+    function cadastrar() {
+        aguardar();
+        var formulario = new URLSearchParams(new FormData(form_cadastro));
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            body: formulario
+        }).then(function (response) {
+            
+            if (response.ok) {
+
+                window.location.href='login.html';
+
+            } else {
+
+                console.log('Erro de cadastro!');
+                response.text().then(function (resposta) {
+                    div_erro.innerHTML = resposta;
+                });
+                finalizar_aguardar();
+            }
+        });
+
+        return false;
+    }
+
+    function aguardar() {
+        btn_entrar.disabled = true;
+        img_aguarde.style.display='block';
+        div_erro.style.display='none';
+    }
+
+    function finalizar_aguardar() {
+        btn_entrar.disabled = false;
+        img_aguarde.style.display='none';
+        div_erro.style.display='block';
+    }
+
+</script>

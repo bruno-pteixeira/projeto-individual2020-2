@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proj. Individual | Meu nome aqui</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/48b24e7021.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="funcoes.js"></script>
+    <link rel="shortcut icon" href="img/Verus Fantasy(SL).png" type="image/x-icon">
+</head>
+
+<body class="background-img" onload="verificar_autenticacao()">
+    <!--header inicio-->
+    <div class="header">
+        <div class="container">
+            <div class="title_header">
+                <img class="logo" src="img/Verus Fantasy(SL).png" alt="">
+            </div>
+            <div class="nav">
+                <ul>
+                    <li class="menu-atual"><a href="index.html">Inicio</a></li>
+                    <li class="current"><a href="sobre.html">Sobre</a></li>
+                    <li><a href="livros.html">Livros</a></li>
+                    <li><a href="" onclick="logoff()">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+        <div class="container">
+            <div class="showcase_sobre">
+                <h1>Sobre o Projeto</h1>
+                <div class="books"><img src="img/Verus Fantasy(SL).png" alt=""></div>
+                <p>Verus Fantasy foi criado para mostrar que fantasia não é algo tão fantasioso quando olhamos com outros olhos para eles de início, tendo assuntos extremamente relevantes para o cotidiano e abordagens diferentes. Com isso pretendo ajudar as pessoas além de também relatar minha própria experiencia com a história</p>
+                <p>Histórias tem a capacidade de ajudar uma pessoa a superar alguns problemas, é um escape, um momento de imersão em algum lugar que não precisa sofrer com os problemas reais, mas, ao mesmo tmepo acaba fornecendo dicas e conselhor para lidar com isso. Além disso, também tem a capacidade de educar a pessoa quanto a certas atitudes dela que podem ser prejudiciais e ela nem sabia, e ao ler, ela percebe
+                </p>
+                <br><br>
+                <h1>Sobre Mim</h1>
+                <div class="sobre_img"><img src="img/personal.jpg" alt=""></div>
+                <p>Meu nome é Bruno, tenho 24 anos, sou estudante de análise e desenvolvimento de sistemas e sou residente de São Paulo.</p>
+                <p>Desde novo eu gosto de ajudar pessoas, já cheguei a me prejudicar por isso, deixando minhas atividades de lado para ajudar os outros e por esse motivo venho tentando controlar um pouco esse meu lado.</p>
+                <p>Aos meus 20 anos entrei para um grupo chamado Demolay e graças a esse grupo, eu realizei diversas filantropias pela cidade e, devo dizer, nunca me senti tão bem com uma atividade quanto naquela. Houveram alguns percalços no caminho por isso acabei me afastando do grupo, porém pretendo voltar a no mínimo realizar as filantropias.</p>
+                <p>Sou extremamente familiar, valorizando muito o tempo que passo com a família além de valorizar também o meu tempo com pessoas que eu gosto como amigos, não importa o lugar, desde que eu esteja com essas pessoas. </p>
+            </div>
+        </div>
+</body>
+</html>
+
+<script>
+
+    let usuario;
+
+    verificar_autenticacao();
+
+    
+</script>

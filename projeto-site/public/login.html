@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proj. Individual | Meu nome aqui</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contato-e-login.css">
+    <script src="https://kit.fontawesome.com/48b24e7021.js" crossorigin="anonymous"></script>
+    <script src="funcoes.js"></script>
+    <link rel="shortcut icon" href="img/Verus Fantasy(SL).png" type="image/x-icon">
+</head>
+
+<body class= background-log>
+    <a href="index.html" class="home_icon"><img src="img/home.png" alt=""></a>
+    <div class="cont_login">
+        <div class="login" id="text_login">
+            <img onclick="redirecionar_index()" src="img/Verus Fantasy(SL).png" alt=""><br>
+            <p>Faça o login agora e desfrute de tudo o que o Verus Fantasy tem para oferecer, críticas diferentes das comuns, levando em conta mais a relevância dos assuntos abordados</p>
+        </div>
+        <div class="login">
+            <form id="form_login" method="post" onsubmit="return entrar()">
+            <span class="title_log">Login</span>
+            <span class="log_field">Usuário</span>
+            <input type="text" name="login">
+            <span class="log_field">Senha</span>
+            <input type="password" name="senha"> <br>
+            <button class="btn_log" id="btn_entrar">Entrar</button>
+        </form>
+            <div class="msg_sgn">
+                <p>Ainda não possui um login?</p>
+                <p>Não perca tempo! Cadastre-se <a href="cadastro.html"><b>AQUI</b></a></p>
+            </div>
+            <div class="extra">
+                <div id="div_erro" class="msg_erro">
+                </div>
+
+                <img src="https://media.giphy.com/media/pGnNhScvs9Udt1WSkA/giphy.gif" id="img_aguarde"  >
+                
+            </div>
+        </div>
+    </div>
+    <div class="footer"></div>
+</body>
+</html>
+
+</html>
+<script>
+
+    function entrar() {
+        aguardar();
+        var formulario = new URLSearchParams(new FormData(form_login));
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            body: formulario
+        }).then(resposta => {
+
+            if (resposta.ok) {
+
+                resposta.json().then(json => {
+
+                    sessionStorage.login_usuario_meuapp = json.login;
+                    sessionStorage.nome_usuario_meuapp = json.nome;
+
+                    window.location.href = 'sobre.html';
+                });
+
+            } else {
+
+                console.log('Erro de login!');
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizar_aguardar(texto);
+                });
+            }
+        });
+
+        return false;
+    }
+
+    function aguardar() {
+        btn_entrar.disabled = true;
+        img_aguarde.style.visibility = 'visible';
+        div_erro.style.visibility = 'hidden';
+    }
+
+    function finalizar_aguardar(resposta) {
+        btn_entrar.disabled = false;
+        img_aguarde.style.visibility = 'hidden';
+        div_erro.style.visibility = 'visible';
+        div_erro.innerHTML = resposta;
+    }
+    
+    function redirecionar_index() {
+        window.location.href="index.html"
+    }
+</script>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verus Fantasy</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="funcoes.js"></script>
+    <link rel="shortcut icon" href="img/Verus Fantasy(SL).png" type="image/x-icon">
+</head>
+
+
+<body class="background-img" onload="verificar_autenticacao()">
+    <div class="header">
+        <div class="container">
+            <div class="title_header">
+                <img class="logo" src="img/Verus Fantasy(SL).png" alt="">
+            </div>
+            <div class="nav">
+                <ul>
+                    <li class="menu-atual"><a href="index.html">Inicio</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li class="current"><a href="livros.html">Livros</a></li>
+                    <li><a href="" onclick="logoff()">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+        <div class="container">
+            <div class="showcase_livros">
+                <h1>Pesquise aqui para saber mais sobre os livros</h1>
+                <b><label for="autor_sel">Autor</label></b>
+                <select onchange="selecionar_autor()" name="autor_sel" id="autor_sel_id">
+                    <option value="default">-- Selecione um Autor -- </option>
+                    <option value="0">Rick Riordan</option>
+                    <option value="1">Raymon E. Feist</option>
+                    <option value="2">Janny Wurts</option>
+                </select>
+                <b><label for="saga_sel">Saga</label></b>
+                <select onchange="selecionar_saga()" name="saga_sel" id="saga_sel_id">
+                    <option value="default">-- Selecione uma Saga --</option>
+                    <option value="0">Percy Jackson</option>
+                    <option value="1">Mago</option>
+                    <option value="2">A Trilogia do Império</option>
+                </select>
+                <b><label for="tema_esp">Temas especiais</label></b>
+                <select onchange="selecionar_tema()" name="tema_esp" id="tema_sel_id">
+                    <option value="default">-- Selecione um tema especial --</option>
+                    <option value="Bullying">Bullying</option>
+                    <option value="Machismo">Machismo</option>
+                    <option value="Política">Política</option>
+                    <option value="Luto">Luto</option>
+                    <option value="Mudancas">Mudanças</option>
+                    <option value="Vida Adolescente">Vida Adolescente</option>
+                    <option value="Racismo">Racismo</option>
+                </select>
+                <BR>
+                    <h3>*Após realizar a pesquisa por tema especial, selecione o botão limpar</h3>
+                </BR>
+                <button onclick="limpar()">Limpar</button>
+                <div class="mago_ctn" id="mago_id" style="display: none;">
+                    <h1>Mago</h1>
+                    <div class="books" id="mage_books">
+                        <img src="img/mage1.jpg" alt="" id="mage1">
+                        <img src="img/mage2.jpg" alt="" id="mage2">
+                        <img src="img/mage3.jpg" alt="" id="mage3">
+                        <img src="img/mage4.jpg" alt="" id="mage4">
+                    </div>
+                    <BR></BR>
+                    <div id="div_autor_mago"><b class="sub_title">Autor:</b></div><br>
+                    <div id="div_temas_mago"><b class="sub_title">Temas Abordados:</b></div>
+                    <h2>Minha experiencia:</h2>
+                        <p class="critica">
+                        Mago é um livro de fantasia em um universo fantástico que aborda diversos assuntos interessantes e necessários de serem abordados como mudanças e luto principalmente.</p>
+                        <p class="critica">A história já começa com o protagonista passando por um processo de mudança grande, onde ele desejava algo com muita força, porém, aquilo que ele desejava não conseguiu necessitando a adaptação dele. Além disso é uma história que aborda luto com o personagem principal perdendo uma pessoa importante no começo além de um outro grande processo de mudança onde seria equivalente, na nossa realidade, a mudar de cidade/país. Ele aborda todos esses assuntos de forma muito natural, sem parecer algo forçado ou chato.</p>
+                        <p class="critica">Nessa história é muito abordado guerra e todas as consequências diretas e indiretas dela. Como uma boa pessoa se transformando num "monstro" pela necessidade de proteger seu povo/sua família. E é mostrado também que uma coisa que lhe contaram não necessariamente é verdade, mesmo que quem tenha dito isso seja alguém que você confia, ama ou qualquer coisa do tipo. Pessoas tem diferentes perspectivas de uma mesma situação/pessoa, e essa perspectiva é afetada diretamente por todo o seu background, como uma relação prévia com a pessoa.</p>
+                        <p class="critica">Um último ponto importante abordado pelos livros da saga é a criminalidade. Não me entenda mal, não irei falar que sou a favor da criminalidade, porém, o mundo não é branco no preto assim. Na vida real, existem pessoas que precisam comer, precisam dar o que comer para sua família e para isso ela está disposta a qualquer coisa, inclusive roubar. E isso não significa que a pessoa seja ruim, preguiçosa, não-talentosa ou qualquer coisa do tipo, é apenas uma circunstância que criou a necessidade dessa ação.</p>
+                        
+                </div>
+                <div class="percy_ctn" id="percy_id" style="display: none;">
+                    <h1>Percy Jackson e os Olimpianos</h1>
+                    <div class="books" id="percy_books">
+                        <img src="img/percy1.jpg" alt="" id="percy1">
+                        <img src="img/percy2.jpg" alt="" id="percy2">
+                        <img src="img/percy3.jpg" alt="" id="percy3">
+                        <img src="img/percy4.jpg" alt="" id="percy4">
+                        <img src="img/percy5.jpg" alt="" id="percy5">
+                    </div>
+                    <BR></BR>
+                    <div id="div_autor_percy"><b class="sub_title">Autor:</b></div><br>
+                    <div id="div_temas_percy"><b class="sub_title">Temas Abordados:</b></div>
+                    <h2>Minha experiencia:</h2>
+                        <p class="critica">Para falar do Percy Jackson é simples: ele vive mudando de escola. Então uma parte dos problemas já da para entender qual é. Percy tem essa necessidade por conta de eventos na história que sempre acarretam nele sendo expulso das escolas e graças a isso ele acabou se acostumando com a mudança. Uma abordagem que eles fazem também, é relacionado ao medo do jovem de se impor, seja por vergonha ou seja por medo de represália. E o Percy mostra (dadas as suas respectivas diferenças), que não temos motivos para ter esses medos. Escola é algo temporário, as pessoas que você conhece lá são em sua grande maioria, temporárias também e a vida é curta demais para você deixar de fazer algo por esses motivos. Viva, erre, faça o que você tiver vontade, mantendo sempre o bom senso, como se esse fosse o último dia da sua vida. E no caso do Percy, essa chance era muito grande. </p>
+                        <p class="critica">Um outro tema que o Percy aborda é o racismo/bullying. Percy em um dado momento, descobre ser irmão de um monstro, porém esse "monstro", não era alguém do mal, ele era super carinhoso com o Percy, mas, esse por outro lado, sentia vergonha de andar com ele, porque acabava sofrendo bullying dos outros jovens e conforme o tempo passa e o Percy sente um baque em relação ao seu irmão, e acaba valorizando seu irmão, com o pessoal fazendo bullying ou não, Percy seguiu em frente e continuou respeitando seu irmão, do jeito que deveria ser.</p>
+                </div>
+                <div class="imperio_ctn" id="imperio_id" style="display: none;">
+                    <h1>Trilogia do Império</h1>
+                    <div class="books" id="imperio_books">
+                        <img src="img/imperio1.jpg" alt="" id="imperio1">
+                        <img src="img/imperio2.jpg" alt="" id="imperio2">
+                        <img src="img/imperio3.jpg" alt="" id="imperio3">
+                    </div>
+                    <BR></BR>
+                    <div id="div_autor_imperio"><b class="sub_title">Autor:</b></div><br>
+                    <div id="div_temas_imperio"><b class="sub_title">Temas Abordados:</b></div>
+                    <h2>Minha experiencia:</h2>
+                        <p class="critica">Essa saga é a mais complicada de se falar. Ela aborda um tema que eu não tenho muito direito de falar que é uma abordagem correta ou não, porém, esse livro iluminou a minha vida quanto a alguns assuntos e para algumas coisas onde eu nunca tinha percebido</p>
+                        <p class="critica">O principal tema abordado por essa saga é o machismo e no início, luto. Mara, nossa protagonista, perde toda sua família e se ve na necessidade de assumir o comando da sua familia, pois nessa história a família/ a carga que o nome da família carrega, é algo extremamente relevante, levando muito em consideração o conceito de honra. Ao enxergar essa necessidade, ela percebe que para conseguir isso, ela precisa se casar, porém, ao se casar, ela acaba cedendo o controle do nome da sua família para o seu marido, única e exclusivamente pelo motivo dela ser... mulher. A história gira em torno dela se provando para a sociedade como uma líder de família poderosa mesmo sendo uma mulher, e que isso na verdade, não tem tanta relevância.</p>
+                        <p class="critica">Um outro tema abordado nesse livro, que é como a Mara se destaca, é política. Entenda, apesar de ser de fantasia, esse livro é um pouco mais fantasioso e menos "ativo", ele é um pouco mais de história/ jogo político do que o seu irmão Mago. E por esses jogos políticos que a Mara se prova como uma grande comandante. Mara através desses jogos consegue fazer com que sua família, de uma família onde todos julgavam estar destinada ao fracasso, ser uma das maiores, ganhando até mesmo um título que seria algo extremamente honorífico, algo que pouquissímas pessoas conseguiram.</p>
+                        
+                </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+
+    let usuario;
+
+    verificar_autenticacao();
+
+    
+</script>
