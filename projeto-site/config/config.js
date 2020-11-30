@@ -1,9 +1,9 @@
 module.exports = {
   production: {
-    username: 'user',
-    password: 'passowrd',
-    database: 'database',
-    host: 'teste.teste.com',
+    username: 'verus-adm',
+    password: '20821495a.',
+    database: 'verus-usuario',
+    host: 'verusfantasy.database.windows.net',
     dialect: 'mssql',
     xuse_env_variable: 'DATABASE_URL',
     dialectOptions: {
@@ -20,4 +20,3 @@ module.exports = {
     }
   }
 };
- 
