@@ -1,9 +1,9 @@
 module.exports = {
   production: {
-    username: 'verus-adm',
-    password: '20821495a.',
-    database: 'verus-usuario',
-    host: 'verusfantasy.database.windows.net',
+    username: 'usuario',
+    password: 'senha',
+    database: 'bd-banco',
+    host: 'banco.banco.windows.net',
     dialect: 'mssql',
     xuse_env_variable: 'DATABASE_URL',
     dialectOptions: {
